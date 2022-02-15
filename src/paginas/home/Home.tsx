@@ -1,11 +1,24 @@
 import React from 'react';
+import {Grid} from '@material-ui/core'
 import './Home.css';
 
 function Home(){
     return(
         <>
-        <h1 className="titulo">Home</h1>
-        <img src="https://i.imgur.com/PLAobHS.jpeg" alt="Imagem Tela Inicial" className="img"/>
+          <Grid container>
+            <Grid item>
+
+            </Grid>
+            <Grid item container>
+                <Grid item>
+
+                </Grid>
+                <Grid item>
+
+                </Grid>
+
+            </Grid>    
+         </Grid>
         </>
     );
 }
