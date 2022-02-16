@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
+import Navbar from './componentes/estaticos/navbar/navbar';
+import Footer from './componentes/estaticos/footer/footer';
 import {Grid} from '@material-ui/core';
 import Home from './paginas/home/Home';
 import './App.css';
@@ -6,29 +9,9 @@ import './App.css';
 function App() {
   return (
    <>
-   <Grid container spacing={3}>
-    <Grid item xs={12} sm={12}>
+   <Navbar />
       <Home />
-    </Grid>
-    <Grid item xs={12} sm={6}>
-      <Home />
-    </Grid>
-    <Grid item xs={12} sm={6}>
-      <Home />
-    </Grid>
-    <Grid item xs={12} sm={3}>
-      <Home />
-    </Grid>
-    <Grid item xs={12} sm={3}>
-      <Home />
-    </Grid>
-    <Grid item xs={12} sm={3}>
-      <Home />
-    </Grid>
-    <Grid item xs={12} sm={3}>
-      <Home />
-    </Grid>
-   </Grid>
+   <Footer />
    </>
   );
 }
