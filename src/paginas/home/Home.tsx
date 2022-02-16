@@ -1,24 +1,22 @@
 import React from 'react';
-import {Grid} from '@material-ui/core'
+import {Box, Button, Paper} from '@material-ui/core'
 import './Home.css';
 
 function Home(){
     return(
         <>
-          <Grid container>
-            <Grid item>
-
-            </Grid>
-            <Grid item container>
-                <Grid item>
-
-                </Grid>
-                <Grid item>
-
-                </Grid>
-
-            </Grid>    
-         </Grid>
+            <Paper>
+                <Box p={2}>
+                    <Box display="flex"justifyContent="center">
+                        <h1>Título</h1>
+                    </Box>
+                    <img src='https://i.imgur.com/Ten2q0e.jpeg' alt="" style={{width: "100%" , height:"100%"}}/>
+                <Box display="flex" justifyContent="center" p={2}>
+                    <Button variant="contained" color="primary"> Texto 1</Button>
+                    <Button variant="contained" color="secondary">Texto 2</Button>
+                    </Box>
+                </Box>
+            </Paper>
         </>
     );
 }
