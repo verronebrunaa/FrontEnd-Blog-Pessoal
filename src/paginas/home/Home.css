@@ -1,11 +1,23 @@
-.container{
-    text-align: center;
-    font-family: 'Oswald', sans-serif;  
+.caixa{
+    background-color: #A359A0 !important;
 }
 
-.img{
-    width: 300px;
-    height: 300px;
-    display: block;
-    margin:0 auto;
+.titulo{
+    color: #49326B !important;
+    font-weight: bold !important;
+}
+
+.text{
+    color: #F2E8DB !important;
+     font-weight: bold; 
+}
+
+.botao{
+    border-color: #F2E8DB !important;
+    background-color: #DD72A6 !important;
+    color: #F2E8DB !important;
+}
+
+.postagem{
+    background-color: #F2E8DB !important;
 }
