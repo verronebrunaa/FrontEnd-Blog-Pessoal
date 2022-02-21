@@ -9,8 +9,7 @@ function Home() {
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
                         <Typography variant="h4" gutterBottom color="textPrimary" component="h4" align="center" className='titulo'>Seja bem vindo(a)!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='text'>Meu nome é Bruna Verrone,</Typography>
-                        <Typography variant="h6" gutterBottom color="textSecondary" component="h6" align="center" className='text'>sou desenvolvedora full stack formada pela Generation Brasil.</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='text'>Esta rede social é para amantes de livros!</Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
@@ -19,7 +18,7 @@ function Home() {
                     </Box>
                 </Grid>
                 <Grid item xs={6}>
-                    <img src="https://i.imgur.com/BnZ0qC5.png" alt="" width="280px" height="280px" />
+                    <img src="https://cdn-icons-png.flaticon.com/512/4584/4584340.png" alt="" width="280px" height="280px" />
                 </Grid>
                 <Grid xs={12} className='postagem'>
                 </Grid>
