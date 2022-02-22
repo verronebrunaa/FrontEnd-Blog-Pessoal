@@ -1,12 +1,15 @@
 import React { useState } from 'react';
 import {Grid, Box, Typography, TextField, Button} from '@material-ui/core';
-import { useState, ChangeEvent } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import {Link} from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
+import { api } from '../../service/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
 
 function Login(){
     let history =userHistory
+    const [token, setToken] = useLocalStorage('token');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -24,6 +27,12 @@ function Login(){
             })
         }
 
+        useEffect(() => {
+            if (token != '') {
+                history.push('/home')
+            }
+        }, [token])
+    
         async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
             e.preventDefault();
             try {
