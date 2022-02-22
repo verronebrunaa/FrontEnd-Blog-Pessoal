@@ -25,6 +25,7 @@ function Login(){
                         <Box marginRight={1}>
                             <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
                         </Box>
+                        
                             <Typography variant='subtitle1'gutterBottom align='center' className='texto'>Cadastre-se</Typography>
                     </Box>
                 </Box>
