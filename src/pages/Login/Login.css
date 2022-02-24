@@ -1,5 +1,5 @@
 .texto{
-    font-weight:bold;
+    font-weight:bold !important;
     color: #A359A0 !important;
 }
 
@@ -13,11 +13,11 @@
 }
 
 .botao1{
-    border-color: #F2E8DB !important;
+    border-color: #F2E8DB ;
     background-color: #DD72A6 !important;
-    color: #F2E8DB !important;
+    color: #F2E8DB;
 }
 
 .text-decorator-none{
-    text-decoration: none;
+    text-decoration: none !important;
 }

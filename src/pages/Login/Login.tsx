@@ -2,7 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import {Grid, Box, Typography, TextField, Button} from '@material-ui/core';
 import {Link, useHistory } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
-import { login } from '../../service/Service';
+import { login } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
 
@@ -27,7 +27,7 @@ function Login(){
         }
 
         useEffect(() => {
-            if (token !== '') {
+            if (token != '') {
                 history.push('/home')
             }
         }, [token])
@@ -36,7 +36,6 @@ function Login(){
             e.preventDefault();
             try {
                await login(`/usuarios/logar`, userLogin, setToken)
-               setToken(resposta.data.token) 
 
                alert('Usuário logado com sucesso!');
             } catch (error){
