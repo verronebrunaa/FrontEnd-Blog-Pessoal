@@ -1,14 +1,13 @@
-import React { useState } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import {Grid, Box, Typography, TextField, Button} from '@material-ui/core';
-import { useState, useEffect, ChangeEvent } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
-import { api } from '../../service/Service';
+import { login } from '../../service/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
 
 function Login(){
-    let history =userHistory
+    let history =useHistory();
     const [token, setToken] = useLocalStorage('token');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
@@ -22,13 +21,13 @@ function Login(){
         function updatedModel(e:ChangeEvent<HTMLInputElement>){
 
             setUserLogin({
-                ... userLogin,
+                ...userLogin,
                 [e.target.name]: e.target.value
             })
         }
 
         useEffect(() => {
-            if (token != '') {
+            if (token !== '') {
                 history.push('/home')
             }
         }, [token])
@@ -36,9 +35,11 @@ function Login(){
         async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
             e.preventDefault();
             try {
-                await login(`/usuarios/logar`, userLogin, setToken)
-                alert('Usuário logado com sucesso!');
-            } catch (error) {
+               await login(`/usuarios/logar`, userLogin, setToken)
+               setToken(resposta.data.token) 
+
+               alert('Usuário logado com sucesso!');
+            } catch (error){
                 alert('Dados do usuário inconsistentes. Erro ao logar!');
             }
         }
