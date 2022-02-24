@@ -4,5 +4,22 @@
 }
 
 .text-decorator-none{
-    text-decoration: none;
+    text-decoration: none !important;
 }
+
+.Logo {
+    background-image: url(https://https://cdn-icons.flaticon.com/png/512/4209/premium/4209433.png?token=exp=1645676453~hmac=9f4aac9288b68b17e552663aaaae651a.imgur.com/1JrwhXi.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.Nav {
+    color: #dd72a6;
+    background-color: #a359a0 !important;
+    text-decoration: none;
+    direction: center;
+}
+
