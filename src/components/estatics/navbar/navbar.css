@@ -1,8 +1,3 @@
-.cursor{
-    cursor: pointer;
-    color: white !important;
-}
-
 .text-decorator-none{
     text-decoration: none !important;
 }
@@ -22,3 +17,8 @@
     direction: center;
 }
 
+.botaonav{
+    border-color: #F2E8DB !important;
+    background-color: #a359a0 !important;
+    color: #F2E8DB !important;
+}
