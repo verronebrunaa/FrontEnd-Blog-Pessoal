@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Typography, Box, Grid, Button} from '@material-ui/core';
-import TabPostagem from '../../components/postagens/tabpostagem/tabPostagem';
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import './Home.css';
+
 
 function Home() {
     return (
