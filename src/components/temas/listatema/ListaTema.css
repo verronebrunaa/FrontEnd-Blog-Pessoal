@@ -1,3 +1,15 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.atualizar{
+    border-color: #F2E8DB !important;
+    background-color: #DD72A6 !important;
+    color: #F2E8DB !important;
+}
+
+.deletar{
+    border-color: #F2E8DB !important;
+    background-color: #a359a0 !important;
+    color: #F2E8DB !important;
+}

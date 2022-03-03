@@ -1,5 +1,6 @@
 import React from 'react';
 import {Typography, Box, Grid, Button} from '@material-ui/core';
+import TabPostagem from '../../components/postagens/tabpostagem/tabPostagem';
 import './Home.css';
 
 function Home() {
@@ -14,13 +15,14 @@ function Home() {
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
                         </Box>
-                        <Button variant="outlined" className='botao'>Posts</Button>
+                        <Button variant="outlined" className='botao'>Postagens</Button>
                     </Box>
                 </Grid>
                 <Grid item xs={6}>
                     <img src="https://cdn-icons-png.flaticon.com/512/4584/4584340.png" alt="" width="280px" height="280px" />
                 </Grid>
                 <Grid xs={12} className='postagem'>
+                    <TabPostagem />
                 </Grid>
             </Grid>
         </>
