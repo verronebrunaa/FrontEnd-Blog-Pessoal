@@ -1,8 +1,20 @@
 import React from 'react';
-import { AppBar, Toolbar, Box, Avatar, Button } from '@material-ui/core';
+import { AppBar, Toolbar, Box, Avatar, Button, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
 import './navbar.css';
+
 function Navbar() {
+    const [token, setToken] = useLocalStorage('token');
+    let history = useHistory();
+
+    function goLogout() {
+        setToken('')
+        alert("Usuário deslogado com sucesso!")
+        history.push('/login')
+    }
+
     return (
         <>
             <AppBar position="static" >
@@ -28,16 +40,15 @@ function Navbar() {
                         </Box>
 
                         <Box mx={1} display="flex">
-                            <Link to="/cadastrotemas" className="text-decorator-none">
+                            <Link to="/formularioTema" className="text-decorator-none">
                                 <Button className="botaonav" variant="outlined">Cadastrar Tema</Button>
                             </Link>
                         </Box>
 
-                        <Box mx={1} display="flex">
-                            <Link to="/login" className="text-decorator-none">
-                                <Button className="botaonav" variant="outlined">Logout</Button>
-                            </Link>
+                        <Box mx={1} className="botaonav" onClick={goLogout}>
+                            <Button className="botaonav" variant="outlined"> Logout </Button>
                         </Box>
+
                     </Box>
                 </Toolbar>
             </AppBar>
