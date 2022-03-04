@@ -20,26 +20,41 @@ function App() {
         <Route exact path='/'>
             <Login />
           </Route>
-
          <Route path='/Login'>
             <Login />
           </Route>
-
           <Route path='/home'>
             <Home />
           </Route>
-
           <Route path='/cadastrousuario'>
             <CadastroUsuario />
           </Route>
-
           <Route path='/temas'>
             <ListaTema />
           </Route>
-
           <Route path='/posts'>
             <ListaPostagem />
           </Route>
+          
+          <Route exact path='/formularioPostagem'>
+            <CadastroPost />
+          </Route>
+          <Route exact path='/formularioPostagem/:id'>
+            <CadastroPost />
+          </Route>
+          <Route exact path='/formularioTema'>
+            <CadastroTema />
+          </Route>
+          <Route exact path='/formularioTema/:id'>
+            <CadastroTema />
+          </Route>
+          <Route path='/deletarPostagem/:id'>
+            <DeletarPostagem />
+          </Route>
+          <Route path='/deletarTema/:id'>
+            <DeletarTema />
+          </Route>
+
         </div>
       </Switch>
     <Footer />
