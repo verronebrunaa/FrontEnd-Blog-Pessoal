@@ -10,6 +10,10 @@ import Home from './pages/home/Home';
 import './App.css';
 import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import ListaTema from './components/temas/listatema/ListaTema';
+import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
+import CadastroTema from './components/temas/cadastroTema/CadastroTema';
+import DeletarTema from './components/temas/deletarTema/DeletarTema';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 
 function App() {
   return (
