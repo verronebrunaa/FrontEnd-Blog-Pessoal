@@ -8,12 +8,12 @@ import Login from './pages/login/Login';
 import {Grid} from '@material-ui/core';
 import Home from './pages/home/Home';
 import './App.css';
-import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
+import ListaPostagens from './components/postagens/listapostagem/ListaPostagens';
 import ListaTema from './components/temas/listatema/ListaTema';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
 import CadastroTema from './components/temas/cadastroTema/CadastroTema';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
-import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+import DeletarPostagens from './components/postagens/deletarPostagem/DeletarPostagens';
 
 function App() {
   return (
@@ -37,13 +37,13 @@ function App() {
             <ListaTema />
           </Route>
           <Route path='/posts'>
-            <ListaPostagem />
+            <ListaPostagens />
           </Route>
           
-          <Route exact path='/formularioPostagem'>
+          <Route exact path='/formularioPostagens'>
             <CadastroPost />
           </Route>
-          <Route exact path='/formularioPostagem/:id'>
+          <Route exact path='/formularioPostagens/:id'>
             <CadastroPost />
           </Route>
           <Route exact path='/formularioTema'>
@@ -52,8 +52,8 @@ function App() {
           <Route exact path='/formularioTema/:id'>
             <CadastroTema />
           </Route>
-          <Route path='/deletarPostagem/:id'>
-            <DeletarPostagem />
+          <Route path='/deletarPostagens/:id'>
+            <DeletarPostagens />
           </Route>
           <Route path='/deletarTema/:id'>
             <DeletarTema />

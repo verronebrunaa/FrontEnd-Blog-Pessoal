@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Postagem from '../../../models/Postagem';
+import Postagens from '../../../models/Postagens';
 import { busca } from '../../../services/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import './ListaPostagem.css';
+import './ListaPostagens.css';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom'
 
-function ListaPostagem() {
-  const [posts, setPosts] = useState<Postagem[]>([])
+function ListaPostagens() {
+  const [posts, setPosts] = useState<Postagens[]>([])
   const [token, setToken] = useLocalStorage('token');
   let history = useHistory();
 
@@ -81,4 +81,4 @@ function ListaPostagem() {
   )
 }
 
-export default ListaPostagem;
+export default ListaPostagens;
