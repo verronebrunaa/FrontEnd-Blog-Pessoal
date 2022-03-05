@@ -59,14 +59,14 @@ function ListaPostagem() {
 
                   <Link to="" className="text-decorator-none" >
                     <Box mx={1}>
-                      <Button className="btatualizar" variant="contained" size='small' color="primary" >
+                      <Button className="btatualizar" variant="contained" size='small'>
                         atualizar
                       </Button>
                     </Box>
                   </Link>
                   <Link to="" className="text-decorator-none">
                     <Box mx={1}>
-                      <Button className="btdeletar" variant="contained" size='small' color="secondary">
+                      <Button className="btdeletar" variant="contained" size='small'>
                         deletar
                       </Button>
                     </Box>
