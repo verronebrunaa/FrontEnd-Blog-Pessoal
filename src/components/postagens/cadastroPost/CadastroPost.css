@@ -1,3 +1,13 @@
 .topo{
     margin-top: 20px;
 }
+
+.finalizar{
+    border-color: #F2E8DB !important;
+    background-color: #a359a0 !important;
+    color: #F2E8DB !important;
+}
+
+.formulario{
+    color: #dd72a6 !important;
+}

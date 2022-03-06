@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {Typography, Box, Grid, Button} from '@material-ui/core';
-import TabPostagem from '../../components/postagens/tabpostagem/TabPostagens';
+import TabPostagens from '../../components/postagens/tabpostagem/TabPostagens';
 import './Home.css';
 
 
@@ -23,7 +23,7 @@ function Home() {
                     <img src="https://cdn-icons-png.flaticon.com/512/4584/4584340.png" alt="" width="280px" height="280px" />
                 </Grid>
                 <Grid xs={12} className='postagem'>
-                    <TabPostagem />
+                    <TabPostagens />
                 </Grid>
             </Grid>
         </>
