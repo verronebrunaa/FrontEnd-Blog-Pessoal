@@ -4,24 +4,24 @@ import Postagens from '../../../models/Postagens';
 import { busca } from '../../../services/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaPostagens.css';
-import { addToken } from '../../store/tokens/actions';
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListaPostagens() {
-    const [posts, setPosts] = useState<Postagens[]>([])
-    const dispatch = useDispatch();
-    const [token, setToken] = useState(' ');
-    let history = useHistory();
-  
-    useEffect(() => {
-      if (token == "") {
-        alert("Você precisa estar logado")
-        dispatch(addToken(token))
-        history.push("/login")
-  
-      }
-    }, [token])
+  const [posts, setPosts] = useState<Postagens[]>([])
+  let history = useHistory();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+
+  useEffect(() => {
+    if (token == "") {
+      alert("Você precisa estar logado")
+      history.push("/login")
+
+    }
+  }, [token])
   
     async function getPost() {
       await busca("/postagens", setPosts, {
