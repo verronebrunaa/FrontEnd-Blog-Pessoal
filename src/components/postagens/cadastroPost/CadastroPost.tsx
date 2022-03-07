@@ -17,6 +17,7 @@ function CadastroPost() {
         useEffect(() => {
             if (token == "") {
                 alert("Você precisa estar logado!")
+                dispatch(addToken(token))
                 history.push("/login")
     
             }

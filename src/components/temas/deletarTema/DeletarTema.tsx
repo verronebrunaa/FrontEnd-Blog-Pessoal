@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { addToken } from '../../store/tokens/actions';
 import { buscaId, deleteId } from '../../../services/Service';
 import Tema from '../../../models/Tema';
+import { useDispatch } from 'react-redux';
 
 
 function DeletarTema() {
@@ -21,9 +22,6 @@ function DeletarTema() {
                 }
             }, [token])
     
-        }
-    }, [token])
-
     useEffect(() =>{
         if(id !== undefined){
             findById(id)

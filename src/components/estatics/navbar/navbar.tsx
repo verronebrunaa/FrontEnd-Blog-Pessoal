@@ -13,6 +13,7 @@ function Navbar() {
     function goLogout() {
         setToken('')
         alert("Usuário deslogado com sucesso!")
+        dispatch(addToken(token))
         history.push('/login')
     }
 

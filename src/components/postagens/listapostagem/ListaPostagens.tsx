@@ -6,6 +6,7 @@ import { Box, Card, CardActions, CardContent, Button, Typography } from '@materi
 import './ListaPostagens.css';
 import { addToken } from '../../store/tokens/actions';
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 
 function ListaPostagens() {
     const [posts, setPosts] = useState<Postagens[]>([])
@@ -16,6 +17,7 @@ function ListaPostagens() {
     useEffect(() => {
       if (token == "") {
         alert("Você precisa estar logado")
+        dispatch(addToken(token))
         history.push("/login")
   
       }

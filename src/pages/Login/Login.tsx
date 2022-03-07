@@ -6,7 +6,6 @@ import { login } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
 import { useDispatch } from 'react-redux';
-import { addToken } from '../../store/tokens/actions';
 
 function Login() {
     let history = useHistory();
