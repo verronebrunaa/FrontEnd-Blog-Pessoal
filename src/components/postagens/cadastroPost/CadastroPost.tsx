@@ -15,7 +15,7 @@ function CadastroPost() {
     
         useEffect(() => {
             if (token == "") {
-                alert("Você precisa estar logado")
+                alert("Você precisa estar logado!")
                 history.push("/login")
     
             }
@@ -41,6 +41,7 @@ function CadastroPost() {
         }, [tema])
     
         useEffect(() => {
+            getTemas()
              if (id !== undefined) {
                 findByIdPostagem(id)
             }
@@ -81,14 +82,14 @@ function CadastroPost() {
                         'Authorization': token
                     }
                 })
-                alert('Postagem atualizada com sucesso');
+                alert('Postagem atualizada com sucesso!');
             } else {
                 post(`/postagens`, postagem, setPostagem, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Postagem cadastrada com sucesso');
+                alert('Postagem cadastrada com sucesso!');
             }
             back()
     
@@ -101,12 +102,12 @@ function CadastroPost() {
     return (
         <Container maxWidth="sm" className="topo">
             <form  onSubmit={onSubmit}>
-                <Typography variant="h3" className="formulario"component="h1" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h3" className="formulario"component="h1" align="center" >Cadastro de postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
                 <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+                    <InputLabel className="temas" id="demo-simple-select-helper-label">Temas </InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
