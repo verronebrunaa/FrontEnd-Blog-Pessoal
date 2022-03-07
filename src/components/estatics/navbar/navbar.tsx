@@ -34,12 +34,6 @@ function Navbar() {
                         </Box>
 
                         <Box mx={1} display="flex">
-                            <Link to="/formularioPostagens" className="text-decorator-none">
-                                <Button className="botaonav" variant="outlined">Cadastrar Postagem</Button>
-                            </Link>
-                        </Box>
-
-                        <Box mx={1} display="flex">
                             <Link to="/temas" className="text-decorator-none">
                                 <Button className="botaonav" variant="outlined">Temas</Button>
                             </Link>

@@ -41,8 +41,7 @@ function CadastroPost() {
         }, [tema])
     
         useEffect(() => {
-            getTemas()
-            if (id !== undefined) {
+             if (id !== undefined) {
                 findByIdPostagem(id)
             }
         }, [id])
