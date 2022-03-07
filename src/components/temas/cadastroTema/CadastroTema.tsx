@@ -2,9 +2,10 @@ import React, {useState, useEffect, ChangeEvent} from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import {useHistory, useParams } from 'react-router-dom'
 import './CadastroTema.css';
-import { addToken } from '../../store/tokens/actions';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../../store/tokens/actions';
 
 
 function CadastroTema() {
@@ -23,9 +24,6 @@ function CadastroTema() {
                     history.push('/home')
                 }
             }, [token])
-    
-        }
-    }, [token])
 
     useEffect(() =>{
         if(id !== undefined){

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Typography, Box, Grid, Button} from '@material-ui/core';
 import TabPostagens from '../../components/postagens/tabpostagem/TabPostagens';
 import ModalPostagens from '../../components/postagens/modalPostagem/ModalPostagens'
 import './Home.css';
 import { addToken } from '../../store/tokens/actions';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 
 function Home() {
