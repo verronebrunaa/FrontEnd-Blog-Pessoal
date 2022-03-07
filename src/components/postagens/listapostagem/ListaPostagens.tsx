@@ -4,12 +4,13 @@ import Postagens from '../../../models/Postagens';
 import { busca } from '../../../services/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaPostagens.css';
-import useLocalStorage from 'react-use-localstorage';
+import { addToken } from '../../store/tokens/actions';
 import { useHistory } from 'react-router-dom'
 
 function ListaPostagens() {
     const [posts, setPosts] = useState<Postagens[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const dispatch = useDispatch();
+    const [token, setToken] = useState(' ');
     let history = useHistory();
   
     useEffect(() => {

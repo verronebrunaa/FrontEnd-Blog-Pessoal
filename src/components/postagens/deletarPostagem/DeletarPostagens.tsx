@@ -4,7 +4,7 @@ import './DeletarPostagens.css';
 import Postagens from '../../../models/Postagens';
 import { buscaId, deleteId } from '../../../services/Service';
 import { useHistory, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { addToken } from '../../store/tokens/actions';
 
 function DeletarPostagens() {
   let history = useHistory();

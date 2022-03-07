@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Box, Card, CardActions, CardContent, Button, Typography} from '@material-ui/core';
 import './DeletarTema.css';
 import { useHistory, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { addToken } from '../../store/tokens/actions';
 import { buscaId, deleteId } from '../../../services/Service';
 import Tema from '../../../models/Tema';
 
@@ -10,13 +10,16 @@ import Tema from '../../../models/Tema';
 function DeletarTema() {
     let history = useHistory();
     const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
+    const dispatch = useDispatch();
+    const [token, setToken] = useState(' ');
     const [tema, setTema] = useState<Tema>()
 
-    useEffect(() => {
-        if (token == "") {
-            alert("Você precisa estar logado")
-            history.push("/login")
+    useEffect(()=>{
+                if(token != ''){
+                    dispatch(addToken(token))
+                    history.push('/home')
+                }
+            }, [token])
     
         }
     }, [token])

@@ -2,24 +2,27 @@ import React, {useState, useEffect, ChangeEvent} from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import {useHistory, useParams } from 'react-router-dom'
 import './CadastroTema.css';
-import useLocalStorage from 'react-use-localstorage';
+import { addToken } from '../../store/tokens/actions';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 
 
 function CadastroTema() {
     let history = useHistory();
+    const dispatch = useDispatch();
     const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
+    const [token, setToken] = useState(' ');
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
     })
 
-    useEffect(() => {
-        if (token == "") {
-            alert("Você precisa estar logado")
-            history.push("/login")
+    useEffect(()=>{
+                if(token != ''){
+                    dispatch(addToken(token))
+                    history.push('/home')
+                }
+            }, [token])
     
         }
     }, [token])

@@ -3,7 +3,7 @@ import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem,
 import './CadastroPost.css';
 import { useHistory, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
-import useLocalStorage from 'react-use-localstorage';
+import { addToken } from '../../store/tokens/actions';
 import Postagens from '../../../models/Postagens';
 import { busca, buscaId, post, put } from '../../../services/Service';
 
@@ -11,7 +11,8 @@ function CadastroPost() {
         let history = useHistory();
         const { id } = useParams<{ id: string }>();
         const [temas, setTemas] = useState<Tema[]>([])
-        const [token, setToken] = useLocalStorage('token');
+        const dispatch = useDispatch();
+        const [token, setToken] = useState(' ');
     
         useEffect(() => {
             if (token == "") {

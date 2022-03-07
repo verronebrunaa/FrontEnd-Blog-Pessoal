@@ -3,18 +3,19 @@ import {Typography, Box, Grid, Button} from '@material-ui/core';
 import TabPostagens from '../../components/postagens/tabpostagem/TabPostagens';
 import ModalPostagens from '../../components/postagens/modalPostagem/ModalPostagens'
 import './Home.css';
-import useLocalStorage from 'react-use-localstorage';
+import { addToken } from '../../store/tokens/actions';
 import { useHistory } from 'react-router-dom';
 
 
 function Home() {
-
-    const [token, setToken] = useLocalStorage('token');
     let history = useHistory();
+    const dispatch = useDispatch();
+    const [token, setToken] = useState(' ');
   
     useEffect(() => {
       if (token == "") {
         alert("Você precisa estar logado")
+        dispatch(addToken(token))
         history.push("/login")
   
       }

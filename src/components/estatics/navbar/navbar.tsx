@@ -2,12 +2,13 @@ import React from 'react';
 import { AppBar, Toolbar, Box, Avatar, Button, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { addToken } from '../../store/tokens/actions';
 import './navbar.css';
 
 function Navbar() {
-    const [token, setToken] = useLocalStorage('token');
     let history = useHistory();
+    const dispatch = useDispatch();
+    const [token, setToken] = useState(' ');
 
     function goLogout() {
         setToken('')
