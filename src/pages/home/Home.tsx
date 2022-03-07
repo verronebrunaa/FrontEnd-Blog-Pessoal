@@ -5,23 +5,24 @@ import ModalPostagens from '../../components/postagens/modalPostagem/ModalPostag
 import './Home.css';
 import { addToken } from '../../store/tokens/actions';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokensReducer';
 
 
 function Home() {
     let history = useHistory();
-    const dispatch = useDispatch();
-    const [token, setToken] = useState(' ');
-  
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
+    
     useEffect(() => {
       if (token == "") {
-        alert("Você precisa estar logado")
-        dispatch(addToken(token))
-        history.push("/login")
+          alert("Você precisa estar logado")
+          history.push("/login")
   
       }
-    }, [token])
-
+  }, [token])
+  
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>

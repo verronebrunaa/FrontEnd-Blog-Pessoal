@@ -1,55 +1,56 @@
 import React, { useEffect, useState } from 'react'
-import {Box, Card, CardActions, CardContent, Button, Typography} from '@material-ui/core';
+import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './DeletarTema.css';
 import { useHistory, useParams } from 'react-router-dom';
-import { addToken } from '../../store/tokens/actions';
 import { buscaId, deleteId } from '../../../services/Service';
 import Tema from '../../../models/Tema';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 
 function DeletarTema() {
-    let history = useHistory();
-    const { id } = useParams<{id: string}>();
-    const dispatch = useDispatch();
-    const [token, setToken] = useState(' ');
-    const [tema, setTema] = useState<Tema>()
+  let history = useHistory();
+  const { id } = useParams<{id: string}>();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+  const [tema, setTema] = useState<Tema>()
 
-    useEffect(()=>{
-                if(token != ''){
-                    dispatch(addToken(token))
-                    history.push('/home')
-                }
-            }, [token])
-    
-    useEffect(() =>{
-        if(id !== undefined){
-            findById(id)
-        }
-    }, [id])
+  useEffect(() => {
+      if (token == "") {
+          alert("Você precisa estar logado")
+          history.push("/login")
+      }
+  }, [token])
 
-    async function findById(id: string) {
-        buscaId(`/temas/${id}`, setTema, {
-            headers: {
-              'Authorization': token
-            }
-          })
-        }
+  useEffect(() => {
+    if (id !== undefined) {
+      findById(id)
+    }
+  }, [id])
 
-        function sim() {
-            history.push('/temas')
-            deleteId(`/temas/${id}`, {
-              headers: {
-                'Authorization': token
-              }
-            });
-            alert('Tema deletado com sucesso');
-          }
-        
-          function nao() {
-            history.push('/temas')
-          }
-          
+  async function findById(id: string) {
+    buscaId(`/temas/${id}`, setTema, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+  function sim() {
+    history.push('/temas')
+    deleteId(`/temas/${id}`, {
+      headers: {
+        'Authorization': token
+      }
+    });
+    alert('Tema deletado com sucesso');
+  }
+
+  function nao() {
+    history.push('/temas')
+  }
+
   return (
     <>
       <Box m={2}>
@@ -67,12 +68,12 @@ function DeletarTema() {
           <CardActions>
             <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
               <Box mx={2}>
-                <Button onClick={sim} variant="contained" size='large'className='sim'>
+                <Button onClick={sim} variant="contained" size='large' className='sim'>
                   Sim
                 </Button>
               </Box>
               <Box mx={2}>
-                <Button  onClick={nao} variant="contained" size='large' className='nao'>
+                <Button onClick={nao} variant="contained" size='large' className='nao'>
                   Não
                 </Button>
               </Box>
