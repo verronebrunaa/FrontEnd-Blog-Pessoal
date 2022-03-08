@@ -7,6 +7,7 @@ import './ListaPostagens.css';
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function ListaPostagens() {
   const [posts, setPosts] = useState<Postagens[]>([])
@@ -17,14 +18,23 @@ function ListaPostagens() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
-      history.push("/login")
+      toast.error('Usuário deslogado com sucesso!' , {
+        position: 'top-right',
+        autoClose: 2000, 
+        hideProgressBar: false, 
+        closeOnClick: true,
+        pauseOnHover: false, 
+        draggable: false, 
+        theme: 'colored', 
+        progress: undefined
+    });  
+        history.push(`/login`)
 
     }
   }, [token])
   
     async function getPost() {
-      await busca("/postagens", setPosts, {
+      await busca(`/postagens`, setPosts, {
         headers: {
           'Authorization': token
         }

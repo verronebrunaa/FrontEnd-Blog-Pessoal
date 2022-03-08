@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
 import Postagens from '../../../models/Postagens';
 import { busca, buscaId, post, put } from '../../../services/Service';
+import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
@@ -15,15 +16,23 @@ function CadastroPost() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
       );
-
-    useEffect(() => {
-        if (token == "") {
-            alert("Você precisa estar logado")
-            history.push("/login")
-
-        }
-    }, [token])
-
+    
+        useEffect(() => {
+            if (token == "") {
+                toast.error("Você precisa estar logado!" , {
+                    position: 'top-right',
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false, 
+                    theme: 'colored',
+                    progress: undefined
+                }); 
+                history.push("/login")
+    
+            }
+        }, [token])
     
         const [tema, setTema] = useState<Tema>(
             {
@@ -46,7 +55,7 @@ function CadastroPost() {
     
         useEffect(() => {
             getTemas()
-             if (id !== undefined) {
+            if (id !== undefined) {
                 findByIdPostagem(id)
             }
         }, [id])
@@ -86,14 +95,14 @@ function CadastroPost() {
                         'Authorization': token
                     }
                 })
-                alert('Postagem atualizada com sucesso!');
+                alert('Postagem atualizada com sucesso');
             } else {
                 post(`/postagens`, postagem, setPostagem, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Postagem cadastrada com sucesso!');
+                alert('Postagem cadastrada com sucesso');
             }
             back()
     
@@ -106,12 +115,12 @@ function CadastroPost() {
     return (
         <Container maxWidth="sm" className="topo">
             <form  onSubmit={onSubmit}>
-                <Typography variant="h3" className="formulario"component="h1" align="center" >Cadastro de postagem</Typography>
+                <Typography variant="h3" className="formulario"component="h1" align="center" >Crie ou altere uma postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
                 <FormControl >
-                    <InputLabel className="temas" id="demo-simple-select-helper-label">Temas </InputLabel>
+                    <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"

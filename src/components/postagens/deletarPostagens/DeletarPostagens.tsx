@@ -6,19 +6,29 @@ import { buscaId, deleteId } from '../../../services/Service';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function DeletarPostagens() {
   let history = useHistory();
   const { id } = useParams<{id: string}>();
+  const [postagens, setPostagens] = useState<Postagens>()
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
-  const [post, setPosts] = useState<Postagens>()
 
   useEffect(() => {
       if (token == "") {
-          alert("Você precisa estar logado")
+        toast.error("Você precisa estar logado!" , {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false, 
+          theme: 'colored',
+          progress: undefined
+      }); 
           history.push("/login")
   
       }
@@ -31,7 +41,7 @@ function DeletarPostagens() {
   }, [id])
 
   async function findById(id: string) {
-      buscaId(`/postagens/${id}`, setPosts, {
+      buscaId(`/postagens/${id}`, setPostagens, {
           headers: {
             'Authorization': token
           }
@@ -45,8 +55,16 @@ function DeletarPostagens() {
               'Authorization': token
             }
           });
-          alert('Postagem deletada com sucesso');
-        }
+          toast.error("Postagem deletada com sucesso!" , {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false, 
+            theme: 'colored',
+            progress: undefined
+        });         }
       
         function nao() {
           history.push('/posts')
@@ -61,7 +79,7 @@ return (
               Deseja deletar a Postagem:
             </Typography>
             <Typography className="textSecondary" >
-            {post?.titulo}
+            {postagens?.titulo}
             </Typography>
           </Box>
 

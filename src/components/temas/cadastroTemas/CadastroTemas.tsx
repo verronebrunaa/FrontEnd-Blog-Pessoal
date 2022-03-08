@@ -1,14 +1,15 @@
 import React, {useState, useEffect, ChangeEvent} from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import {useHistory, useParams } from 'react-router-dom'
-import './CadastroTema.css';
+import './CadastroTemas.css';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../../store/tokens/actions';
+import { toast } from 'react-toastify';
 
 
-function CadastroTema() {
+function CadastroTemas() {
     let history = useHistory();
     const dispatch = useDispatch();
     const { id } = useParams<{id: string}>();
@@ -59,15 +60,32 @@ function CadastroTema() {
                         'Authorization': token
                     }
                 })
-                alert('Tema atualizado com sucesso');
-            } else {
+                toast.error('Tema atualizado com sucesso!' , {
+                    position: 'top-right',
+                    autoClose: 2000, 
+                    hideProgressBar: false, 
+                    closeOnClick: true,
+                    pauseOnHover: false, 
+                    draggable: false, 
+                    theme: 'colored', 
+                    progress: undefined
+                });  
+                    } else {
                 post(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Tema cadastrado com sucesso');
-            }
+                toast.error("Tema cadastrado com sucesso!" , {
+                    position: 'top-right',
+                    autoClose: 2000, 
+                    hideProgressBar: false, 
+                    closeOnClick: true,
+                    pauseOnHover: false, 
+                    draggable: false, 
+                    theme: 'colored', 
+                    progress: undefined
+                });              }
             back()
     
         }
@@ -79,8 +97,8 @@ function CadastroTema() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" className="textform" component="h1" align="center" >Cadastro de tema</Typography>
-                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <Typography variant="h3" className="textform" component="h1" align="center" >Crie ou altere um tema</Typography>
+                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="Descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" className='finalizar'>
                     Finalizar
                 </Button>
@@ -89,4 +107,4 @@ function CadastroTema() {
     )
 }
 
-export default CadastroTema;
+export default CadastroTemas;

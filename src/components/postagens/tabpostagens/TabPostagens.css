@@ -6,7 +6,12 @@
     background-color: #DD72A6 !important;
 }
 
-.sobre{
+.sobrenos{
     color: #49326B !important;
+    font-weight: bold !important;
+}
+
+.sobre{
+    color: #DD72A6 !important;
     font-weight: bold !important;
 }

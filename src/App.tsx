@@ -8,43 +8,38 @@ import Login from './pages/login/Login';
 import {Grid} from '@material-ui/core';
 import Home from './pages/home/Home';
 import './App.css';
-import ListaPostagens from './components/postagens/listapostagem/ListaPostagens';
-import ListaTema from './components/temas/listatema/ListaTema';
+import ListaPostagens from './components/postagens/listaPostagens/ListaPostagens';
+import ListaTemas from './components/temas/listaTemas/ListaTemas';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
-import CadastroTema from './components/temas/cadastroTema/CadastroTema';
-import DeletarTema from './components/temas/deletarTema/DeletarTema';
-import DeletarPostagens from './components/postagens/deletarPostagem/DeletarPostagens';
-import { Provider } from 'react-redux';
+import CadastroTemas from './components/temas/cadastroTemas/CadastroTemas';
+import DeletarTemas from './components/temas/deletarTemas/DeletarTemas';
+import DeletarPostagens from './components/postagens/deletarPostagens/DeletarPostagens';
+import {Provider} from 'react-redux';
 import store from './store/store';
+
 
 function App() {
   return (
     <Provider store={store}>
-   <Router>
-     <Navbar />
+    <Router>
+      <Navbar />
       <Switch>
-        <div style={{ minHeight: '100vh'}}>
-
+        <div style={{ minHeight: '100vh' }}>
         <Route exact path='/'>
             <Login />
           </Route>
-
          <Route path='/login'>
             <Login />
           </Route>
-
           <Route path='/home'>
             <Home />
           </Route>
-
           <Route path='/cadastrousuario'>
             <CadastroUsuario />
           </Route>
-
           <Route path='/temas'>
-            <ListaTema />
+            <ListaTemas />
           </Route>
-
           <Route path='/posts'>
             <ListaPostagens />
           </Route>
@@ -52,32 +47,27 @@ function App() {
           <Route exact path='/formularioPostagens'>
             <CadastroPost />
           </Route>
-
           <Route exact path='/formularioPostagens/:id'>
             <CadastroPost />
           </Route>
-
-          <Route exact path='/formularioTema'>
-            <CadastroTema />
+          <Route exact path='/formularioTemas'>
+            <CadastroTemas />
           </Route>
-
-          <Route exact path='/formularioTema/:id'>
-            <CadastroTema />
+          <Route exact path='/formularioTemas/:id'>
+            <CadastroTemas />
           </Route>
-
           <Route path='/deletarPostagens/:id'>
             <DeletarPostagens />
           </Route>
-          
-          <Route path='/deletarTema/:id'>
-            <DeletarTema />
+          <Route path='/deletarTemas/:id'>
+            <DeletarTemas />
           </Route>
 
-        </div>
+          </div>
       </Switch>
-    <Footer />
-   </Router>
-   </Provider>
+      <Footer />
+    </Router>
+    </Provider>
   );
 }
 
