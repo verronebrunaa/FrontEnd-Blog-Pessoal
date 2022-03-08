@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/estatics/navbar/navbar';

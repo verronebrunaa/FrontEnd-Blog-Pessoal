@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 function Login() {
     let history = useHistory();
     const dispatch = useDispatch();
-    const [token, setToken] = useState(' ');
+    const [token, setToken] = useState('');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,

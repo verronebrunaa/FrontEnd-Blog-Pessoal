@@ -20,9 +20,8 @@ function CadastroTemas() {
     })
 
     useEffect(()=>{
-                if(token != ''){
-                    dispatch(addToken(token))
-                    history.push('/home')
+                if(token == ''){
+                    history.push('/login')
                 }
             }, [token])
 
