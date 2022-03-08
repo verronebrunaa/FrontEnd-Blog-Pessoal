@@ -18,7 +18,7 @@ function DeletarTema() {
 
   useEffect(() => {
       if (token == "") {
-          alert("Você precisa estar logado")
+          alert("Você precisa estar logado!")
           history.push("/login")
       }
   }, [token])
@@ -44,7 +44,7 @@ function DeletarTema() {
         'Authorization': token
       }
     });
-    alert('Tema deletado com sucesso');
+    alert('Tema deletado com sucesso!');
   }
 
   function nao() {

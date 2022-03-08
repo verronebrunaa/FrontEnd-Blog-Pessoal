@@ -24,21 +24,27 @@ function App() {
      <Navbar />
       <Switch>
         <div style={{ minHeight: '100vh'}}>
+
         <Route exact path='/'>
             <Login />
           </Route>
+
          <Route path='/login'>
             <Login />
           </Route>
+
           <Route path='/home'>
             <Home />
           </Route>
+
           <Route path='/cadastrousuario'>
             <CadastroUsuario />
           </Route>
+
           <Route path='/temas'>
             <ListaTema />
           </Route>
+
           <Route path='/posts'>
             <ListaPostagens />
           </Route>
@@ -46,18 +52,23 @@ function App() {
           <Route exact path='/formularioPostagens'>
             <CadastroPost />
           </Route>
+
           <Route exact path='/formularioPostagens/:id'>
             <CadastroPost />
           </Route>
+
           <Route exact path='/formularioTema'>
             <CadastroTema />
           </Route>
+
           <Route exact path='/formularioTema/:id'>
             <CadastroTema />
           </Route>
+
           <Route path='/deletarPostagens/:id'>
             <DeletarPostagens />
           </Route>
+          
           <Route path='/deletarTema/:id'>
             <DeletarTema />
           </Route>

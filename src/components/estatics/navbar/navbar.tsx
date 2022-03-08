@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { AppBar, Toolbar, Box, Avatar, Button, Typography } from '@material-ui/core';
+import React from 'react';
+import { AppBar, Toolbar, Box, Avatar, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import './navbar.css';
@@ -22,9 +22,10 @@ function Navbar() {
 
     var navbarComponent;
 
-    if (token != "") {
+    if (token !== "") {
         navbarComponent = <AppBar position="static">
          <Toolbar variant="dense" className='Nav'>
+
                 <Box display="flex">
                     <Link to='/home' className='text-decorator-none' >
                         <Box>
