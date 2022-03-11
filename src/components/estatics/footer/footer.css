@@ -1,18 +1,19 @@
-.box{
-    background-color: #A359A0;
-    height: 120px;
-}
-
-.box2{
-    background-color: #A359A0;
-    height: 60px;
+.footer{
+    background-color: #A359A0 !important;
+    height: 100%
 }
 
 .redes{
-    font-size: 60px !important; 
+    font-size: 20px !important; 
     color: #f2e8db;
 }
 
-.textos{
-    color: #f2e8db;
+.textofooter{
+    color: #f2e8db !important;
+}
+
+.imgfooter{
+    padding-top: 15px !important;
+    padding-bottom: 50px !important;
+    padding-left: 15px !important;
 }

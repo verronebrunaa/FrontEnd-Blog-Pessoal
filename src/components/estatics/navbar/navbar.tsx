@@ -38,7 +38,7 @@ function Navbar() {
                 <Box display="flex">
                     <Link to='/home' className='text-decorator-none' >
                         <Box>
-                            <Avatar alt="Logo: livro" src='https://cdn-icons.flaticon.com/png/512/3227/premium/3227053.png?token=exp=1646752535~hmac=4bf14843a882d21a7414d56b76cccc05' />
+                            <Avatar alt="Logo: livro" src='https://i.imgur.com/5lzLeX5.png' />
                         </Box>
                     </Link>
 
