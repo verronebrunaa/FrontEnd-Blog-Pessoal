@@ -74,7 +74,7 @@ function CadastroUsuario() {
     }
 
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
+        <Grid container direction='row' justifyContent='center' alignItems='center' className="backcadastro">
             <Grid item xs={6} className='imagem1'></Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={10}>
@@ -82,7 +82,7 @@ function CadastroUsuario() {
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='texto1'>Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='nome' margin='normal' fullWidth />
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Email' variant='outlined' name='usuario' margin='normal' fullWidth />
-                        <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
+                        <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha (mínimo 8 dígitos)' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='Confirme sua senha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
