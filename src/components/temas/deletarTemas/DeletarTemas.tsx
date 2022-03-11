@@ -74,7 +74,7 @@ function DeletarTemas() {
         <Card variant="outlined">
           <CardContent>
             <Box justifyContent="center">
-              <Typography color="textSecondary" gutterBottom>
+              <Typography className="textodeletar" gutterBottom>
                 Deseja deletar o Tema:
               </Typography>
               <Typography color="textSecondary">

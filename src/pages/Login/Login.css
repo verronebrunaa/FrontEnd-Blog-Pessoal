@@ -1,4 +1,4 @@
-.texto{
+.textologin{
     font-weight:bold !important;
     color: #A359A0 !important;
 }
@@ -24,4 +24,9 @@
 
 .backlogin{
     background: #e0cee0;
+}
+
+.textologinconta{
+    font-weight:bold !important;
+    color: #DD72A6 !important;
 }
