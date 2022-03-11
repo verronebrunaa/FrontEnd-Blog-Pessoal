@@ -15,109 +15,124 @@ function CadastroPost() {
     const [temas, setTemas] = useState<Tema[]>([])
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-      );
-    
-        useEffect(() => {
-            if (token == "") {
-                toast.error("Você precisa estar logado!" , {
-                    position: 'top-right',
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: false, 
-                    theme: 'colored',
-                    progress: undefined
-                }); 
-                history.push("/login")
-    
-            }
-        }, [token])
-    
-        const [tema, setTema] = useState<Tema>(
-            {
-                id: 0,
-                descricao: ''
-            })
-        const [postagem, setPostagem] = useState<Postagens>({
+    );
+
+    useEffect(() => {
+        if (token == "") {
+            toast.error('Você precisa estar logado!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            });
+            history.push('/login')
+
+        }
+    }, [token])
+
+    const [tema, setTema] = useState<Tema>(
+        {
             id: 0,
-            titulo: '',
-            texto: '',
-            tema: null
+            descricao: ''
         })
-    
-        useEffect(() => { 
-            setPostagem({
-                ...postagem,
-                tema: tema
-            })
-        }, [tema])
-    
-        useEffect(() => {
-            getTemas()
-            if (id !== undefined) {
-                findByIdPostagem(id)
+    const [postagem, setPostagem] = useState<Postagens>({
+        id: 0,
+        titulo: '',
+        texto: '',
+        tema: null
+    })
+
+    useEffect(() => {
+        setPostagem({
+            ...postagem,
+            tema: tema
+        })
+    }, [tema])
+
+    useEffect(() => {
+        getTemas()
+        if (id !== undefined) {
+            findByIdPostagem(id)
+        }
+    }, [id])
+
+    async function getTemas() {
+        await busca(`/temas`, setTemas, {
+            headers: {
+                'Authorization': token
             }
-        }, [id])
-    
-        async function getTemas() {
-            await busca(`/temas`, setTemas, {
+        })
+    }
+
+    async function findByIdPostagem(id: string) {
+        await buscaId(`postagens/${id}`, setPostagem, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
+
+    function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
+
+        setPostagem({
+            ...postagem,
+            [e.target.name]: e.target.value,
+            tema: tema
+        })
+
+    }
+
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        if (id !== undefined) {
+            put(`/postagens`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
-        }
-    
-        async function findByIdPostagem(id: string) {
-            await buscaId(`postagens/${id}`, setPostagem, {
+            toast.success('Postagem atualizada com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            }); 
+        } else {
+            post(`/postagens`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
+            toast.success('Postagem cadastrada com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            }); 
         }
-    
-        function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
-    
-            setPostagem({
-                ...postagem,
-                [e.target.name]: e.target.value,
-                tema: tema
-            })
-    
-        }
-    
-        async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-            e.preventDefault()
-    
-            if (id !== undefined) {
-                put(`/postagens`, postagem, setPostagem, {
-                    headers: {
-                        'Authorization': token
-                    }
-                })
-                alert('Postagem atualizada com sucesso');
-            } else {
-                post(`/postagens`, postagem, setPostagem, {
-                    headers: {
-                        'Authorization': token
-                    }
-                })
-                alert('Postagem cadastrada com sucesso');
-            }
-            back()
-    
-        }
-    
-        function back() {
-            history.push('/posts')
-        }
+        back()
+
+    }
+
+    function back() {
+        history.push('/posts')
+    }
 
     return (
         <Container maxWidth="sm" className="topo">
-            <form  onSubmit={onSubmit}>
-                <Typography variant="h3" className="formulario"component="h1" align="center" >Crie ou altere uma postagem</Typography>
-                <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
+            <form onSubmit={onSubmit}>
+                <Typography variant="h3" className="formulario" component="h1" align="center" >Crie ou altere uma postagem</Typography>
+                <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="Título" variant="outlined" name="titulo" margin="normal" fullWidth />
+                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="Texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>

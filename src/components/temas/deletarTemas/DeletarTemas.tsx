@@ -11,26 +11,25 @@ import { toast } from 'react-toastify';
 
 function DeletarTemas() {
   let history = useHistory();
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
   const [tema, setTema] = useState<Tema>()
 
   useEffect(() => {
-      if (token == "") {
-        toast.error('Você precisa estar logado!' , {
-          position: 'top-right',
-          autoClose: 2000, 
-          hideProgressBar: false, 
-          closeOnClick: true,
-          pauseOnHover: false, 
-          draggable: false, 
-          theme: 'colored', 
-          progress: undefined
-      });            
+    if (token == "") {
+      toast.error('Você precisa estar logado!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
       history.push(`/login`)
-      }
+    }
   }, [token])
 
   useEffect(() => {
@@ -54,16 +53,15 @@ function DeletarTemas() {
         'Authorization': token
       }
     });
-    toast.error('Tema deletado com sucesso!' , {
-      position: 'top-right',
-      autoClose: 2000, 
-      hideProgressBar: false, 
+    toast.success('Tema deletado com sucesso!', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: false, 
-      draggable: false, 
-      theme: 'colored', 
-      progress: undefined
-  }); 
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   function nao() {
