@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/estatics/navbar/navbar';
 import Footer from './components/estatics/footer/footer';
 import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
-import Login from './pages/login/Login';
+import Login from './pages/Login/Login';
 import Home from './pages/home/Home';
 import './App.css';
 import ListaPostagens from './components/postagens/listaPostagens/ListaPostagens';
