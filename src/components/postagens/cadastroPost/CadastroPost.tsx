@@ -42,7 +42,8 @@ function CadastroPost() {
         id: 0,
         titulo: '',
         texto: '',
-        tema: null
+        tema: null,
+        foto: ''
     })
 
     useEffect(() => {
@@ -130,9 +131,10 @@ function CadastroPost() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" className="formulario" component="h1" align="center" >Crie ou altere uma postagem</Typography>
+                <Typography variant="h3" className="formulario" component="h3" align="center" >Crie ou altere uma postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="Título" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="Texto" name="texto" variant="outlined" margin="normal" fullWidth />
+                <TextField value={postagem.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="Foto (Opcional)" name="foto" variant="outlined" margin="normal" placeholder="Insira a URL de uma foto para a postagem." fullWidth />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>

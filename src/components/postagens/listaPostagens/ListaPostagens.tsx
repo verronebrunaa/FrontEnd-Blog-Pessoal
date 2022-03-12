@@ -50,43 +50,46 @@ function ListaPostagens() {
     <>
       {
         posts.map(post => (
-            <Box m={3}>
-              <Card variant="outlined">
-                <CardContent>
-                  <Typography className="textPostagens" gutterBottom>
-                    Postagens
-                  </Typography>
-                  <Typography variant="h5" component="h2">
-                    {post.titulo}
-                  </Typography>
-                  <Typography variant="body2" component="p">
-                    {post.texto}
-                  </Typography>
-                  <Typography variant="body2" component="p">
-                    {post.tema?.descricao}
-                  </Typography>
-                </CardContent>
+          <Box m={3}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography className="textPostagens" gutterBottom>
+                  Postagens
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  {post.titulo}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {post.texto}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {post.tema?.descricao}
+                </Typography>
+                <Typography variant="h6" component="h2" >
+                  <img src={post.foto || "https://i.imgur.com/VP03zoo.png"} alt="Imagem da postagem" width={300}></img>
+                </Typography>
+              </CardContent>
 
-                <CardActions>
-                  <Box display="flex" justifyContent="center" mb={1.5}>
-                    <Link to={`/formularioPostagens/${post.id}`} className="text-decorator-none" >
-                      <Box mx={1}>
-                        <Button variant="contained" size='small' className="btatualizar">
-                          atualizar
-                        </Button>
-                      </Box>
-                    </Link>
-                    <Link to={`/deletarPostagens/${post.id}`} className="text-decorator-none">
-                      <Box mx={1}>
-                        <Button variant="contained" size='small' className="btdeletar">
-                          deletar
-                        </Button>
-                      </Box>
-                    </Link>
-                  </Box>
-                </CardActions>
-              </Card>
-            </Box>
+              <CardActions>
+                <Box display="flex" justifyContent="center" mb={1.5}>
+                  <Link to={`/formularioPostagens/${post.id}`} className="text-decorator-none" >
+                    <Box mx={1}>
+                      <Button variant="contained" size='small' className="btatualizar">
+                        atualizar
+                      </Button>
+                    </Box>
+                  </Link>
+                  <Link to={`/deletarPostagens/${post.id}`} className="text-decorator-none">
+                    <Box mx={1}>
+                      <Button variant="contained" size='small' className="btdeletar">
+                        deletar
+                      </Button>
+                    </Box>
+                  </Link>
+                </Box>
+              </CardActions>
+            </Card>
+          </Box>
         ))
       }
     </>

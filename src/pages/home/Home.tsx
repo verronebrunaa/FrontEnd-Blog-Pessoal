@@ -51,7 +51,7 @@ function Home() {
                     </Box>
                 </Grid>
                 <Grid item xs={6}>
-                    <img src="https://i.imgur.com/5lzLeX5.png" alt="" width="280px" height="280px" />
+                    <img src="https://i.imgur.com/5lzLeX5.png" alt="" width="500px" height="500px" />
                 </Grid>
                 <Grid xs={12} className='postagens'>
                     <TabPostagens />
