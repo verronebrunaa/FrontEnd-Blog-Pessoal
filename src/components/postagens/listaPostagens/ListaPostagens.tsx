@@ -66,7 +66,7 @@ function ListaPostagens() {
                   {post.tema?.descricao}
                 </Typography>
                 <Typography variant="h6" component="h2" >
-                  <img src={post.foto || "https://i.imgur.com/VP03zoo.png"} alt="Imagem da postagem" width={300}></img>
+                  <img src={post.foto || "https://i.imgur.com/VP03zoo.png"} alt="Logo com livros e café escrito na cor rosa BookGram" width={300}></img>
                 </Typography>
               </CardContent>
 

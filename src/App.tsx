@@ -4,7 +4,6 @@ import Navbar from './components/estatics/navbar/navbar';
 import Footer from './components/estatics/footer/footer';
 import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
 import Login from './pages/login/Login';
-import {Grid} from '@material-ui/core';
 import Home from './pages/home/Home';
 import './App.css';
 import ListaPostagens from './components/postagens/listaPostagens/ListaPostagens';
