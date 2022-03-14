@@ -16,8 +16,7 @@ function CadastroUsuario() {
             id: 0,
             nome: '',
             usuario: '',
-            senha: '',
-            foto: ''
+            senha: ''
         })
 
     const [userResult, setUserResult] = useState<User>(
@@ -25,8 +24,7 @@ function CadastroUsuario() {
             id: 0,
             nome: '',
             usuario: '',
-            senha: '',
-            foto: ''
+            senha: ''
         })
 
     useEffect(() => {
@@ -96,7 +94,6 @@ function CadastroUsuario() {
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Email' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha (mínimo 8 dígitos)' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='Confirme sua senha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
-                        <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='foto' label='Foto' variant='outlined' name='foto' margin='normal' fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
                                 <Button variant='contained' className='botao2'>
